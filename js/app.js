@@ -23,7 +23,7 @@ const showProducts = (products) => {
       <p>Category: ${product.category}</p>
       <h4><strong> ${product.rating.rate} <i class="fas fa-star rating"></i></strong> <strong> ${product.rating.count} <i class="fas fa-user-plus rating-by-person"></i></strong> </h4>
       <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-secondary">add to cart</button>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-dark">add to cart</button>
       <button onclick="singleItem(${product.id})" id="details-btn" class="btn btn-primary">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
@@ -97,7 +97,7 @@ const singleItem = (productId) => {
 const singleItemDetails = items => {
   const div = document.createElement('div');
   div.innerHTML = `
-            <div class="card mb-3 mx-auto" style="max-width: 540px;">
+            <div class="card mb-3 mx-auto single-item-bg" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img src="${items.image}" class="img-fluid rounded-start -4" alt="...">
