@@ -14,8 +14,8 @@ const showProducts = (products) => {
     // used correct object name image instead images
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.classList.add("product", "my-2");
+    div.innerHTML = `<div class="single-product h-100">
       <div>
     <img class="product-image" src=${image}></img>
       </div>
