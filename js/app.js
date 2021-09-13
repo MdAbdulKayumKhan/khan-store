@@ -21,10 +21,10 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <h4>Rating:<strong> ${product.rating.rate}</strong> Persons: <strong> ${product.rating.count}</strong> </h4>
+      <h4><strong> ${product.rating.rate} <i class="fas fa-star rating"></i></strong> <strong> ${product.rating.count} <i class="fas fa-user-plus rating-by-person"></i></strong> </h4>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-secondary">add to cart</button>
-      <button id="details-btn" class="btn btn-primary">Details</button></div>
+      <button onclick="singleItem(${product.id})" id="details-btn" class="btn btn-primary">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -86,3 +86,32 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal;
 };
 
+const singleItem = (productId) => {
+  document.getElementById("singel-item").textContent = '';
+  const url = `https://fakestoreapi.com/products/${productId}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => singleItemDetails(data));
+}
+
+const singleItemDetails = items => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+            <div class="card mb-3 mx-auto" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="${items.image}" class="img-fluid rounded-start -4" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h3 class="card-title">${items.title}</h3>
+                    <p class="card-text">Category: ${items.category}</p>
+                    <h5 class="card-title">Price: ${items.price}</h5>
+                    <p class="card-text"><small class="text-muted">${items.rating.rate}<i class="fas fa-star rating"></i>    ${items.rating.count} <i class="fas fa-user-plus rating-by-person"></i></small></p>
+                  </div>
+                </div>
+              </div>
+             </div>
+         `;
+  document.getElementById("singel-item").appendChild(div);
+}
