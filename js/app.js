@@ -106,7 +106,7 @@ const singleItemDetails = items => {
                   <div class="card-body">
                     <h3 class="card-title">${items.title}</h3>
                     <p class="card-text">Category: ${items.category}</p>
-                    <h5 class="card-title">Price: ${items.price}</h5>
+                    <h5 class="card-title">Price: $ ${items.price}</h5>
                     <p class="card-text"><small class="text-muted">${items.rating.rate}<i class="fas fa-star rating"></i>    ${items.rating.count} <i class="fas fa-user-plus rating-by-person"></i></small></p>
                   </div>
                 </div>
